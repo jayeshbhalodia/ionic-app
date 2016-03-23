@@ -1,46 +1,60 @@
 <ion-navbar *navbar>
-  <ion-title>
-    Cuisine Mart
-  </ion-title>
+    <ion-buttons start>
+        <button>
+            <ion-icon padding name="pulse"></ion-icon> <span>Recipes</span>
+        </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+        <button (click)="addCuisineModal()">
+            <ion-icon padding name="add-circle"></ion-icon>
+        </button>
+    </ion-buttons>
 </ion-navbar>
 
-<ion-content class="cuisine-mart-section">
-    <div padding class="header-view">
-        <h4>
-            <span>Food View</span>
-            <span class="list-header"><ion-icon name="add-circle"></ion-icon> <span>Add Food</span></span>
-        </h4>
-    </div>
-    <div>
+<ion-content>
+    <div *ngIf="readyCuisineSpin">
         <ion-list>
-            <ion-item-sliding>
-                <ion-item>
-                    <ion-avatar item-left>
-                        <img src="img/slimer.png">
-                    </ion-avatar>
-                    <h2>Slimer</h2>
-                </ion-item>
-                <ion-item-options>
-                    <button primary>
-                        <ion-icon name="text"></ion-icon>
-                        Text
-                    </button>
-                    <button secondary>
-                    <ion-icon name="call"></ion-icon>
-                    Call
-                    </button>
-                </ion-item-options>
-            </ion-item-sliding>
-        </ion-list>
-        <!-- <ion-list>
             <ion-item>
-                <ion-avatar item-left>
-                  <img src="img/avatar-finn.png">
-                </ion-avatar>
-                <h2>Finn</h2>
-                <h3>Don't Know What To Do!</h3>
-                <p>I've had a pretty messed up day. If we just...</p>
+                <ion-thumbnail item-left>
+                  <img src="https://www.qykapp.com/article/content/images/2015/09/food.jpg">
+                </ion-thumbnail>
+                <h2>Kaju Kari</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button clear item-right>View</button>
             </ion-item>
-        </ion-list> -->
+
+            <ion-item>
+                <ion-thumbnail item-left>
+                  <img src="http://imgcdn.raagalahari.com/jan2013/local/punjabi-food-festival-hotel-golden-park/punjabi-food-festival-hotel-golden-park1t.jpg">
+                </ion-thumbnail>
+                <h2>Panner Tika</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button clear item-right>View</button>
+            </ion-item>
+
+            <ion-item>
+                <ion-thumbnail item-left>
+                  <img src="http://imgcdn.raagalahari.com/jan2013/local/punjabi-food-festival-hotel-golden-park/punjabi-food-festival-hotel-golden-park7t.jpg">
+                </ion-thumbnail>
+                <h2>Panner Handi</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button clear item-right>View</button>
+            </ion-item>
+
+            <ion-item>
+                <ion-thumbnail item-left>
+                  <img src="http://imgcdn.raagalahari.com/jan2013/local/punjabi-food-festival-hotel-golden-park/punjabi-food-festival-hotel-golden-park22t.jpg">
+                </ion-thumbnail>
+                <h2>Panner Kadai</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button clear item-right>View</button>
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div class="ic-spinner-block" *ngIf="!readyCuisineSpin">
+        <ion-spinner icon="ripple" class="spinner-assertive ic-spinner"></ion-spinner>
     </div>
 </ion-content>

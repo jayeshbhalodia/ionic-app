@@ -4,4 +4,4 @@ import {Page, Modal} from 'ionic-angular';
 	templateUrl: 'build/pages/payment/payment.html'
 })
 
-export class payment{ }
+export class Payment { }
