@@ -1,0 +1,33 @@
+<ion-navbar *navbar>
+    <ion-buttons start>
+        <button>
+            <ion-icon padding name="basket"></ion-icon> <span>NutritionFacts</span>
+        </button>
+    </ion-buttons>
+</ion-navbar>
+
+<ion-content>
+    <div template="ngIf:readyNFactSpin">
+        <ion-list *ngFor="#rFKey of readNFact;">
+            <ion-item-sliding>
+                <ion-item>
+                      <ion-avatar item-left>
+                        <img src="build/pages/image/{{rFKey.image[0]}}">
+                      </ion-avatar>
+                  <h2>{{rFKey.name}}</h2>
+                </ion-item>
+
+                <ion-item-options>
+                      <button primary (click)="viewNFactModal(rFKey)">
+                            <ion-icon name="text"></ion-icon>
+                            View
+                      </button>
+                </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+    </div>
+
+    <div class="ic-spinner-block" template="ngIf:!readyNFactSpin">
+        <ion-spinner icon="ripple" class="spinner-assertive ic-spinner"></ion-spinner>
+    </div>
+</ion-content>

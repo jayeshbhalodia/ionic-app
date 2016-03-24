@@ -67792,6 +67792,7 @@
 	var cuisine_1 = __webpack_require__(403);
 	var payment_1 = __webpack_require__(405);
 	var stock_1 = __webpack_require__(407);
+	var nutritionFacts_1 = __webpack_require__(409);
 	// import {Page2} from '../page2/page2';
 	// import {Page3} from '../page3/page3';
 	var TabsPage = (function () {
@@ -67801,6 +67802,7 @@
 	        this.tab2Root = payment_1.Payment;
 	        this.tab3Root = stock_1.Stock;
 	        this.tab1Root = cuisine_1.Cuisine;
+	        this.tab4Root = nutritionFacts_1.NutritionFacts;
 	    }
 	    TabsPage = __decorate([
 	        ionic_angular_1.Page({
@@ -68043,6 +68045,129 @@
 	    return ShoppingModal;
 	}());
 	exports.ShoppingModal = ShoppingModal;
+
+
+/***/ },
+/* 409 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var modal_1 = __webpack_require__(410);
+	var NutritionFacts = (function () {
+	    function NutritionFacts(nav) {
+	        var _this = this;
+	        this.readyNFactSpin = false;
+	        this.readNFact = [];
+	        this.nearByNFact = {};
+	        this.nav = nav;
+	        this.readNFact = [{
+	                name: 'Apple',
+	                type: 'Fruite',
+	                description: 'The apple tree is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus.',
+	                image: ['apple1.jpeg', 'apple2.jpeg', 'apple3.jpeg'],
+	                nutritionFacts: [{
+	                        name: 'apple',
+	                        amountPer: '100 grams',
+	                        calories: 52,
+	                        vitaminA: 1,
+	                        calcium: 0,
+	                        vitaminD: 0,
+	                        vitaminB12: 0,
+	                        vitaminC: 7,
+	                        iron: 0,
+	                        vitaminB6: 0,
+	                        magnesium: 1,
+	                        sodium: {
+	                            text: '1mg',
+	                            per: 0
+	                        },
+	                        potassium: {
+	                            text: '107mg',
+	                            per: 3
+	                        },
+	                        protein: {
+	                            text: '0.3g',
+	                            per: 0
+	                        },
+	                        total_carbohydrate: {
+	                            text: '14g',
+	                            per: 4,
+	                            tc_1: {
+	                                name: 'Dietary fiber',
+	                                text: '2.4g',
+	                                per: 9
+	                            },
+	                            tc_2: {
+	                                name: 'Sugar',
+	                                text: '10g',
+	                                per: 0
+	                            }
+	                        }
+	                    }],
+	            }];
+	        setTimeout(function () {
+	            _this.readyNFactSpin = true;
+	        }, 1500);
+	    }
+	    NutritionFacts.prototype.viewNFactModal = function (nearbyNFact) {
+	        this.nearByNFact = Object.assign({}, nearbyNFact);
+	        var modal = ionic_angular_1.Modal.create(modal_1.MyModal, { nearByNFact: this.nearByNFact });
+	        this.nav.present(modal);
+	    };
+	    NutritionFacts = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/nutritionFacts/nutritionFacts.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+	    ], NutritionFacts);
+	    return NutritionFacts;
+	}());
+	exports.NutritionFacts = NutritionFacts;
+
+
+/***/ },
+/* 410 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var MyModal = (function () {
+	    function MyModal(viewCtrl, params) {
+	        this.nearByNFact = {};
+	        this.viewCtrl = viewCtrl;
+	        this.nearByNFact = params.get('nearByNFact');
+	    }
+	    MyModal.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    MyModal = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/nutritionFacts/modal.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
+	    ], MyModal);
+	    return MyModal;
+	}());
+	exports.MyModal = MyModal;
 
 
 /***/ }

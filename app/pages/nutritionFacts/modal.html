@@ -1,0 +1,36 @@
+<ion-toolbar class="poi-modal-head">
+    <ion-title>
+        NutritionFacts
+    </ion-title>
+    <ion-buttons end>
+        <button (click)="dismiss()" padding>
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="has-header poi-modal-body">
+    <div>
+        <ion-card>
+
+            <img src="build/pages/image/{{nearByNFact.image[0]}}">
+
+            <ion-card-content>
+                <p>{{nearByNFact.name}}</p>
+                <p>{{nearByNFact.type}}</p>
+                <p>{{nearByNFact.description}}</p>
+                <p>Nutrition Facts</p>
+                <p>{{nearByNFact.name}}s</p>
+
+                <ion-list *ngFor="#NFact of nearByNFact.nutritionFacts">
+                    <ion-item class="padding-lt">
+                        {{NFact.amountPer}}
+                    </ion-item>
+                    <ion-item class="padding-lt">
+                        {{NFact.amountPer}}
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
