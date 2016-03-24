@@ -1,9 +1,11 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HomePage} from './pages/home/home';
-import {payment} from './pages/payment/payment';
+import {Payment} from './pages/payment/payment';
 import {TabsPage} from './pages/tabs/tabs';
 import {Stock} from './pages/stock/stock';
+import {MyModal} from './pages/cuisine/modal';
+import {Cuisine} from './pages/cuisine/cuisine';
 
 
 @App({

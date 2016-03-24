@@ -67790,17 +67790,17 @@
 	};
 	var ionic_angular_1 = __webpack_require__(5);
 	var cuisine_1 = __webpack_require__(403);
-	var payment_1 = __webpack_require__(404);
-	var stock_1 = __webpack_require__(405);
+	var payment_1 = __webpack_require__(405);
+	var stock_1 = __webpack_require__(406);
 	// import {Page2} from '../page2/page2';
 	// import {Page3} from '../page3/page3';
 	var TabsPage = (function () {
 	    function TabsPage() {
 	        // this tells the tabs component which Pages
 	        // should be each tab's root Page
-	        this.tab1Root = cuisine_1.cuisine;
-	        this.tab2Root = payment_1.payment;
+	        this.tab2Root = payment_1.Payment;
 	        this.tab3Root = stock_1.Stock;
+	        this.tab1Root = cuisine_1.Cuisine;
 	    }
 	    TabsPage = __decorate([
 	        ionic_angular_1.Page({
@@ -67828,18 +67828,29 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var cuisine = (function () {
-	    function cuisine() {
+	var modal_1 = __webpack_require__(404);
+	var Cuisine = (function () {
+	    function Cuisine(nav) {
+	        var _this = this;
+	        this.readyCuisineSpin = false;
+	        this.nav = nav;
+	        setTimeout(function () {
+	            _this.readyCuisineSpin = true;
+	        }, 2200);
 	    }
-	    cuisine = __decorate([
+	    Cuisine.prototype.addCuisineModal = function () {
+	        var modal = ionic_angular_1.Modal.create(modal_1.MyModal);
+	        this.nav.present(modal);
+	    };
+	    Cuisine = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'build/pages/cuisine/cuisine.html'
 	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], cuisine);
-	    return cuisine;
+	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+	    ], Cuisine);
+	    return Cuisine;
 	}());
-	exports.cuisine = cuisine;
+	exports.Cuisine = Cuisine;
 
 
 /***/ },
@@ -67857,22 +67868,56 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var payment = (function () {
-	    function payment() {
+	var MyModal = (function () {
+	    function MyModal(viewCtrl, params) {
+	        this.viewCtrl = viewCtrl;
 	    }
-	    payment = __decorate([
+	    MyModal.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    MyModal.serverURL = 'http://apple.com/';
+	    MyModal = __decorate([
 	        ionic_angular_1.Page({
-	            templateUrl: 'build/pages/payment/payment.html'
+	            templateUrl: 'build/pages/cuisine/modal.html'
 	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], payment);
-	    return payment;
+	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
+	    ], MyModal);
+	    return MyModal;
 	}());
-	exports.payment = payment;
+	exports.MyModal = MyModal;
 
 
 /***/ },
 /* 405 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var Payment = (function () {
+	    function Payment() {
+	    }
+	    Payment = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/payment/payment.html'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], Payment);
+	    return Payment;
+	}());
+	exports.Payment = Payment;
+
+
+/***/ },
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
