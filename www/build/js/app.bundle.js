@@ -67791,7 +67791,7 @@
 	var ionic_angular_1 = __webpack_require__(5);
 	var cuisine_1 = __webpack_require__(403);
 	var payment_1 = __webpack_require__(405);
-	var stock_1 = __webpack_require__(406);
+	var stock_1 = __webpack_require__(407);
 	// import {Page2} from '../page2/page2';
 	// import {Page3} from '../page3/page3';
 	var TabsPage = (function () {
@@ -67901,7 +67901,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var modal_1 = __webpack_require__(407);
+	var modal_1 = __webpack_require__(406);
 	var Payment = (function () {
 	    function Payment(nav) {
 	        var _this = this;
@@ -67942,64 +67942,6 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var modal_1 = __webpack_require__(407);
-	var Stock = (function () {
-	    function Stock(nav) {
-	        var _this = this;
-	        this.readySoppingSpin = false;
-	        this.nav = nav;
-	        setTimeout(function () {
-	            _this.readySoppingSpin = true;
-	        }, 1500);
-	    }
-	    Stock.prototype.addShoppingModal = function () {
-	        var modal = ionic_angular_1.Modal.create(modal_1.ShoppingModal);
-	        this.nav.present(modal);
-	    };
-	    Stock = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: 'build/pages/stock/stock.html'
-	        }), 
-	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
-	    ], Stock);
-	    return Stock;
-	}());
-	exports.Stock = Stock;
-
-
-/***/ },
-/* 407 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_angular_1 = __webpack_require__(5);
-
-	var ShoppingModal = (function () {
-	    function ShoppingModal(viewCtrl, params) {
-	        this.viewCtrl = viewCtrl;
-	    }
-	    ShoppingModal.prototype.dismiss = function () {
-	        this.viewCtrl.dismiss();
-	    };
-	    ShoppingModal = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: 'build/pages/stock/modal.html'
-	        }), 
-	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
-	    ], ShoppingModal);
-	    return ShoppingModal;
-	}());
-	exports.ShoppingModal = ShoppingModal;
-
 	var MyModal = (function () {
 	    function MyModal(viewCtrl, params) {
 	        this.showADDDollerPart = false;
@@ -68028,6 +67970,79 @@
 	    return MyModal;
 	}());
 	exports.MyModal = MyModal;
+
+
+/***/ },
+/* 407 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var modal_1 = __webpack_require__(408);
+	var Stock = (function () {
+	    function Stock(nav) {
+	        var _this = this;
+	        this.readySoppingSpin = false;
+	        this.nav = nav;
+	        setTimeout(function () {
+	            _this.readySoppingSpin = true;
+	        }, 1500);
+	    }
+	    Stock.prototype.addShoppingModal = function () {
+	        var modal = ionic_angular_1.Modal.create(modal_1.ShoppingModal);
+	        this.nav.present(modal);
+	    };
+	    Stock = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/stock/stock.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+	    ], Stock);
+	    return Stock;
+	}());
+	exports.Stock = Stock;
+
+
+/***/ },
+/* 408 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var ShoppingModal = (function () {
+	    function ShoppingModal(viewCtrl, params) {
+	        this.viewCtrl = viewCtrl;
+	    }
+	    ShoppingModal.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    ShoppingModal = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/stock/modal.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
+	    ], ShoppingModal);
+	    return ShoppingModal;
+	}());
+	exports.ShoppingModal = ShoppingModal;
 
 
 /***/ }
