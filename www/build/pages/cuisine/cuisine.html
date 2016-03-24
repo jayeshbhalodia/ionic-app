@@ -13,7 +13,7 @@
 </ion-navbar>
 
 <ion-content>
-    <div *ngIf="readyCuisineSpin">
+    <div template="ngIf:readyCuisineSpin">
         <ion-list>
             <ion-item>
                 <ion-thumbnail item-left>
@@ -54,7 +54,7 @@
         </ion-list>
     </div>
 
-    <div class="ic-spinner-block" *ngIf="!readyCuisineSpin">
+    <div class="ic-spinner-block" template="ngIf:!readyCuisineSpin">
         <ion-spinner icon="ripple" class="spinner-assertive ic-spinner"></ion-spinner>
     </div>
 </ion-content>

@@ -1,0 +1,52 @@
+<ion-toolbar class="poi-modal-head">
+    <ion-buttons start *ngIf="showADDDollerPart || showShoppingFromWalletPart">
+        <button (click)="backStep()" padding>
+            back
+        </button>
+    </ion-buttons>
+    <ion-title>
+        Add Wallet
+    </ion-title>
+    <ion-buttons end>
+        <button (click)="dismiss()" padding>
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="has-header poi-modal-body">
+
+    <div padding *ngIf="!showADDDollerPart && !showShoppingFromWalletPart">
+        <button class="button button-block button-energized" (click)="addDollerAmount()">
+          ADD $
+        </button>
+
+        <button class="button button-block button-energized" (click)="addShoppingFromWalletAmount()">
+          Shopping From Wallet
+        </button>
+    </div>
+
+    <div padding *ngIf="showADDDollerPart || showShoppingFromWalletPart">
+        <ion-item>
+            <ion-label stacked>Amount</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Note</ion-label>
+            <ion-textarea></ion-textarea>
+        </ion-item>
+
+        <div padding *ngIf="showADDDollerPart && !showShoppingFromWalletPart">
+            <button class="button button-block button-energized">
+               <ion-icon name="add-circle"></ion-icon> Add Receipt
+            </button>
+        </div>     
+    </div>
+
+</ion-content>
+
+<ion-toolbar position="bottom" class="footer-comman-padding">
+      <button small primary class="pull-right" *ngIf="showADDDollerPart || showShoppingFromWalletPart"> Save </button>
+      <button small light class="pull-right" (click)="dismiss()"> cancel </button>
+</ion-toolbar>

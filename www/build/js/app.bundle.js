@@ -67836,7 +67836,7 @@
 	        this.nav = nav;
 	        setTimeout(function () {
 	            _this.readyCuisineSpin = true;
-	        }, 2200);
+	        }, 1500);
 	    }
 	    Cuisine.prototype.addCuisineModal = function () {
 	        var modal = ionic_angular_1.Modal.create(modal_1.MyModal);
@@ -67875,7 +67875,6 @@
 	    MyModal.prototype.dismiss = function () {
 	        this.viewCtrl.dismiss();
 	    };
-	    MyModal.serverURL = 'http://apple.com/';
 	    MyModal = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'build/pages/cuisine/modal.html'
@@ -67902,14 +67901,26 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
+	var modal_1 = __webpack_require__(407);
 	var Payment = (function () {
-	    function Payment() {
+	    function Payment(nav) {
+	        var _this = this;
+	        this.readyPaymentSpin = false;
+	        this.nav = nav;
+	        this.time = new Date();
+	        setTimeout(function () {
+	            _this.readyPaymentSpin = true;
+	        }, 1500);
 	    }
+	    Payment.prototype.addPaymentModal = function () {
+	        var modal = ionic_angular_1.Modal.create(modal_1.MyModal);
+	        this.nav.present(modal);
+	    };
 	    Payment = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'build/pages/payment/payment.html'
 	        }), 
-	        __metadata('design:paramtypes', [])
+	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
 	    ], Payment);
 	    return Payment;
 	}());
@@ -67943,6 +67954,51 @@
 	    return Stock;
 	}());
 	exports.Stock = Stock;
+
+
+/***/ },
+/* 407 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_angular_1 = __webpack_require__(5);
+	var MyModal = (function () {
+	    function MyModal(viewCtrl, params) {
+	        this.showADDDollerPart = false;
+	        this.showShoppingFromWalletPart = false;
+	        this.viewCtrl = viewCtrl;
+	    }
+	    MyModal.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    MyModal.prototype.backStep = function () {
+	        this.showADDDollerPart = false;
+	        this.showShoppingFromWalletPart = false;
+	    };
+	    MyModal.prototype.addDollerAmount = function () {
+	        this.showADDDollerPart = true;
+	    };
+	    MyModal.prototype.addShoppingFromWalletAmount = function () {
+	        this.showShoppingFromWalletPart = true;
+	    };
+	    MyModal = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/payment/modal.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
+	    ], MyModal);
+	    return MyModal;
+	}());
+	exports.MyModal = MyModal;
 
 
 /***/ }
