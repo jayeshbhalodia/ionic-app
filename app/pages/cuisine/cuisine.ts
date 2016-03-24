@@ -14,7 +14,7 @@ export class Cuisine {
 
 		setTimeout(() => {
 			this.readyCuisineSpin = true;
-		}, 2200);
+		}, 1500);
 
 	}
 	addCuisineModal() {

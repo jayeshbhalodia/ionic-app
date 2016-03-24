@@ -1,16 +1,85 @@
+<style type="text/css">
+    
+    .payment-section .minus-amount {
+        background-color: rgba(255, 197, 184, 0.24);
+    }
+
+    .payment-section .plus-amount {
+        background-color: rgba(209, 253, 209, 0.24);
+    }
+
+
+</style>
 <ion-navbar *navbar>
-  <ion-title>
-    Payment
-  </ion-title>
+    <ion-buttons start>
+        <button>
+            <ion-icon padding name="briefcase"></ion-icon> <span>Wallet</span>
+        </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+        <button (click)="addPaymentModal()">
+            <ion-icon padding name="add-circle"></ion-icon>
+        </button>
+    </ion-buttons>
 </ion-navbar>
 
-<ion-content class="home">
-  <ion-card>
-    <ion-card-header>
-      Hello Payment Tejas
-    </ion-card-header>
-    <ion-card-content>
-      Hello Payment Paresh
-    </ion-card-content>
-  </ion-card>
+<ion-content class="payment-section">
+    <div template="ngIf:readyPaymentSpin">
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Total Amount - 5,00,0000 <span class="pull-right">{{time | date}}</span></ion-label>
+            </ion-list-header>
+            
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">100000</ion-label>
+                <ion-label>Invesr Relience Capital Share</ion-label>
+                <ion-label>11/07/2015</ion-label>
+            </ion-item>
+
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">10000</ion-label>
+                <ion-label>Buy Clothes</ion-label>
+                <ion-label>27/01/2016</ion-label>
+            </ion-item>
+
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">5000</ion-label>
+                <ion-label>Lic Premium</ion-label>
+                <ion-label>18/02/2016</ion-label>
+            </ion-item>
+
+
+            <ion-item class="plus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">200000</ion-label>
+                <ion-label>Salary</ion-label>
+                <ion-label>15/12/2016</ion-label>
+            </ion-item>
+
+
+
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">500</ion-label>
+                <ion-label>Daenerys Targaryen Fund</ion-label>
+                <ion-label>04/05/2016</ion-label>
+            </ion-item>
+
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">2527</ion-label>
+                <ion-label>Pay Light Bill</ion-label>
+                <ion-label>03/07/2016</ion-label>
+            </ion-item>
+
+            <ion-item class="minus-amount">
+                <ion-label tabBadge="14" tabBadgeStyle="danger">25000</ion-label>
+                <ion-label>Buy Tv</ion-label>
+                <ion-label>1/28/2016</ion-label>
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div class="ic-spinner-block" template="ngIf:!readyPaymentSpin">
+        <ion-spinner icon="ripple" class="spinner-assertive ic-spinner"></ion-spinner>
+    </div>
 </ion-content>
