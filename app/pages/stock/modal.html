@@ -1,0 +1,36 @@
+<ion-toolbar class="poi-modal-head">
+    <ion-title>
+        Add Recipes
+    </ion-title>
+    <ion-buttons end>
+        <button (click)="dismiss()" padding>
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="has-header poi-modal-body">
+  <div>
+      <ion-item>
+         <ion-label stacked>Name</ion-label>
+         <ion-input type="text"></ion-input>
+       </ion-item>
+
+       <ion-item>
+          <ion-label stacked>Description</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+  </div>
+
+  <div padding>
+    <button class="button button-block button-energized">
+      Next..s
+    </button>
+  </div>
+
+</ion-content>
+
+<ion-toolbar position="bottom" class="footer-comman-padding">
+      <button small primary class="footer-btn-right"> Save </button>
+      <button small light class="footer-btn-right=" (click)="dismiss()"> cancel </button>
+</ion-toolbar>

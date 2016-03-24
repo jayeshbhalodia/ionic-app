@@ -67942,14 +67942,25 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
+	var modal_1 = __webpack_require__(407);
 	var Stock = (function () {
-	    function Stock() {
+	    function Stock(nav) {
+	        var _this = this;
+	        this.readySoppingSpin = false;
+	        this.nav = nav;
+	        setTimeout(function () {
+	            _this.readySoppingSpin = true;
+	        }, 1500);
 	    }
+	    Stock.prototype.addShoppingModal = function () {
+	        var modal = ionic_angular_1.Modal.create(modal_1.ShoppingModal);
+	        this.nav.present(modal);
+	    };
 	    Stock = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'build/pages/stock/stock.html'
 	        }), 
-	        __metadata('design:paramtypes', [])
+	        __metadata('design:paramtypes', [ionic_angular_1.NavController])
 	    ], Stock);
 	    return Stock;
 	}());
@@ -67971,6 +67982,24 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
+
+	var ShoppingModal = (function () {
+	    function ShoppingModal(viewCtrl, params) {
+	        this.viewCtrl = viewCtrl;
+	    }
+	    ShoppingModal.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    ShoppingModal = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: 'build/pages/stock/modal.html'
+	        }), 
+	        __metadata('design:paramtypes', [ionic_angular_1.ViewController, ionic_angular_1.NavParams])
+	    ], ShoppingModal);
+	    return ShoppingModal;
+	}());
+	exports.ShoppingModal = ShoppingModal;
+
 	var MyModal = (function () {
 	    function MyModal(viewCtrl, params) {
 	        this.showADDDollerPart = false;

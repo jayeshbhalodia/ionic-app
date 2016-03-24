@@ -2,13 +2,12 @@ import {Page, Modal, NavController, ViewController, NavParams} from 'ionic-angul
 
 
 @Page({
-    templateUrl: 'build/pages/cuisine/modal.html'
+    templateUrl: 'build/pages/stock/modal.html'
 })
 
-export class MyModal {
+export class ShoppingModal {
 
     viewCtrl: ViewController;
-
     constructor(viewCtrl: ViewController, params: NavParams) {
         this.viewCtrl = viewCtrl;
     }
