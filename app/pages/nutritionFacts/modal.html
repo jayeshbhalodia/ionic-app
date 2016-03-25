@@ -1,6 +1,19 @@
+<style type="text/css">
+    .nutritionFacts-body .padding-left-50 {
+        padding-left: 40px !important;
+    }
+
+    .nutritionFacts-body .font-weight-600 {
+        font-weight: 600;
+    }
+    .nutritionFacts-body ion-list {
+        margin-top:0px !important;
+    }
+
+</style>
 <ion-toolbar class="poi-modal-head">
     <ion-title>
-        NutritionFacts
+        {{nearByNFact.name}}
     </ion-title>
     <ion-buttons end>
         <button (click)="dismiss()" padding>
@@ -9,26 +22,143 @@
     </ion-buttons>
 </ion-toolbar>
 
-<ion-content class="has-header poi-modal-body">
+<ion-content class="has-header nutritionFacts-body">
     <div>
         <ion-card>
-
-            <img src="build/pages/image/{{nearByNFact.image[0]}}">
-
+            <img src="build/pages/image/{{selectedNFactNMImage}}">
             <ion-card-content>
-                <p>{{nearByNFact.name}}</p>
+                <h1>{{nearByNFact.name}}</h1>
                 <p>{{nearByNFact.type}}</p>
-                <p>{{nearByNFact.description}}</p>
-                <p>Nutrition Facts</p>
-                <p>{{nearByNFact.name}}s</p>
+                <p style="padding:20px 0px;">{{nearByNFact.description}}</p>
+                <h1>Nutrition Facts</h1>
+
+                <ion-item class="padding-lt"> 
+                    <ion-select [(ngModel)]="selectedNFactNM" class="padding-lt" (ngModelChange)="setChangeImage(selectedNFactNM)">
+                        <ion-option *ngFor="#NFact of nearByNFact.nutritionFacts" value="{{NFact.name}}">{{NFact.name}}</ion-option>
+                    </ion-select>
+                </ion-item>
 
                 <ion-list *ngFor="#NFact of nearByNFact.nutritionFacts">
-                    <ion-item class="padding-lt">
-                        {{NFact.amountPer}}
-                    </ion-item>
-                    <ion-item class="padding-lt">
-                        {{NFact.amountPer}}
-                    </ion-item>
+                    <div *ngIf="selectedNFactNM == NFact.name">
+                        <ion-item class="padding-lt" style="border-top:1px solid green;">
+                            <span class="font-weight-600">Amount Per </span> {{NFact.amountPer}}
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Calories </span> {{NFact.calories}}
+                        </ion-item>
+
+                        <ion-item class="padding-lt" style="border-top:1px solid green;">
+                            <span class="pull-right font-weight-600">% Daily Value*</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Total Fat </span> {{NFact.totelFat.text}} <span class="pull-right">{{NFact.totelFat.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.totelFat.tf_1">
+                            <div class="padding-left-50">
+                                <span>Saturated fat </span> {{NFact.totelFat.tf_1.text}} <span class="pull-right">{{NFact.totelFat.tf_1.per}}%</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.totelFat.tf_2">
+                            <div class="padding-left-50">
+                                <span>Polyunsaturated fat </span> {{NFact.totelFat.tf_2.text}} <span class="pull-right">{{NFact.totelFat.tf_2.per}}%</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.totelFat.tf_3">
+                            <div class="padding-left-50">
+                                <span>Monounsaturated fat </span> {{NFact.totelFat.tf_3.text}} <span class="pull-right">{{NFact.totelFat.tf_3.per}}%</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Cholesterol </span> {{NFact.cholesterol.text}} <span class="pull-right">{{NFact.cholesterol.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Sodium </span> {{NFact.sodium.text}} <span class="pull-right">{{NFact.sodium.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Potassium </span> {{NFact.potassium.text}} <span class="pull-right">{{NFact.potassium.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <span class="font-weight-600">Total Carbohydrate </span> {{NFact.total_carbohydrate.text}} <span class="pull-right">{{NFact.total_carbohydrate.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.total_carbohydrate.tc_1">
+                            <div class="padding-left-50">
+                                <span>{{NFact.total_carbohydrate.tc_1.name}} </span> {{NFact.total_carbohydrate.tc_1.text}} <span class="pull-right">{{NFact.total_carbohydrate.tc_1.per}}%</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.total_carbohydrate.tc_2">
+                            <div class="padding-left-50">
+                                <span>{{NFact.total_carbohydrate.tc_2.name}} </span> {{NFact.total_carbohydrate.tc_2.text}} <span class="pull-right">{{NFact.total_carbohydrate.tc_2.per}}%</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" *ngIf="NFact.total_carbohydrate.tc_3">
+                            <span class="font-weight-600">Protein </span> {{NFact.protein.text}} <span class="pull-right">{{NFact.protein.per}}%</span>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" style="border-top:1px solid green;">
+                            <ion-row class="padding-00">
+                                <ion-col width-50 class="padding-lt">
+                                    <span>Vitamin A </span><span class="pull-right">{{NFact.vitaminA}}%</span>
+                                </ion-col>
+
+                                <ion-col width-50 class="padding-rt">
+                                    <span>Vitamin C</span><span class="pull-right">{{NFact.vitaminC}}%</span>
+                                </ion-col>
+                            </ion-row>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <ion-row class="padding-00">
+                                <ion-col width-50 class="padding-lt">
+                                    <span>Calcium </span><span class="pull-right">{{NFact.calcium}}%</span>
+                                </ion-col>
+
+                                <ion-col width-50 class="padding-rt">
+                                    <span>Iron</span><span class="pull-right">{{NFact.iron}}%</span>
+                                </ion-col>
+                            </ion-row>
+                        </ion-item>
+
+                        <ion-item class="padding-lt">
+                            <ion-row class="padding-00">
+                                <ion-col width-50 class="padding-lt">
+                                    <span>Vitamin D </span><span class="pull-right">{{NFact.vitaminD}}%</span>
+                                </ion-col>
+
+                                <ion-col width-50 class="padding-rt">
+                                    <span>Vitamin B-6 </span><span class="pull-right">{{NFact.vitaminB6}}%</span>
+                                </ion-col>
+                            </ion-row>
+                        </ion-item>
+
+                        <ion-item class="padding-lt" style="border-bottom:1px solid green;">
+                            <ion-row class="padding-00">
+                                <ion-col width-50 class="padding-lt">
+                                    <span>Vitamin B-12 </span><span class="pull-right">{{NFact.vitaminB12}}%</span>
+                                </ion-col>
+
+                                <ion-col width-50 class="padding-rt">
+                                    <span>Magnesium </span><span class="pull-right">{{NFact.magnesium}}%</span>
+                                </ion-col>
+                            </ion-row>
+                        </ion-item>
+
+                        <div style="padding-top:10px;">
+                            *Per cent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.
+                        </div>
+                    </div>
+
                 </ion-list>
             </ion-card-content>
         </ion-card>

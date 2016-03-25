@@ -68074,9 +68074,10 @@
 	                name: 'Apple',
 	                type: 'Fruite',
 	                description: 'The apple tree is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus.',
-	                image: ['apple1.jpeg', 'apple2.jpeg', 'apple3.jpeg'],
+	                image: ['nf1.jpeg', 'nf2.jpeg', 'nf3.jpeg'],
 	                nutritionFacts: [{
 	                        name: 'apple',
+	                        image: 'nf1.jpeg',
 	                        amountPer: '100 grams',
 	                        calories: 52,
 	                        vitaminA: 1,
@@ -68112,8 +68113,93 @@
 	                                text: '10g',
 	                                per: 0
 	                            }
+	                        },
+	                        cholesterol: {
+	                            text: '0mg',
+	                            per: 0
+	                        },
+	                        totelFat: {
+	                            text: '0.2mg',
+	                            per: 0,
+	                            tf_1: {
+	                                name: 'Saturated fat',
+	                                text: '0g',
+	                                per: 0
+	                            },
+	                            tf_2: {
+	                                name: 'Polyunsaturated fat',
+	                                text: '0.1g',
+	                                per: 0
+	                            },
+	                            tf_3: {
+	                                name: 'Monounsaturated fat',
+	                                text: '0g',
+	                                per: 0
+	                            }
 	                        }
-	                    }],
+	                    }, {
+	                        name: 'appleJuice_unsweetened',
+	                        image: 'nf2.jpeg',
+	                        amountPer: '100 grams',
+	                        calories: 46,
+	                        vitaminA: 0,
+	                        calcium: 0,
+	                        vitaminD: 0,
+	                        vitaminB12: 0,
+	                        vitaminC: 1,
+	                        iron: 0,
+	                        vitaminB6: 0,
+	                        magnesium: 1,
+	                        sodium: {
+	                            text: '4mg',
+	                            per: 0
+	                        },
+	                        potassium: {
+	                            text: '101mg',
+	                            per: 2
+	                        },
+	                        protein: {
+	                            text: '0.1g',
+	                            per: 0
+	                        },
+	                        total_carbohydrate: {
+	                            text: '11g',
+	                            per: 3,
+	                            tc_1: {
+	                                name: 'Dietary fiber',
+	                                text: '0.2g',
+	                                per: 0
+	                            },
+	                            tc_2: {
+	                                name: 'Sugar',
+	                                text: '10g',
+	                                per: 0
+	                            }
+	                        },
+	                        cholesterol: {
+	                            text: '0mg',
+	                            per: 0
+	                        },
+	                        totelFat: {
+	                            text: '0.1g',
+	                            per: 0,
+	                            tf_1: {
+	                                name: 'Saturated fat',
+	                                text: '0g',
+	                                per: 0
+	                            },
+	                            tf_2: {
+	                                name: 'Polyunsaturated fat',
+	                                text: '0g',
+	                                per: 0
+	                            },
+	                            tf_3: {
+	                                name: 'Monounsaturated fat',
+	                                text: '0g',
+	                                per: 0
+	                            }
+	                        }
+	                    }]
 	            }];
 	        setTimeout(function () {
 	            _this.readyNFactSpin = true;
@@ -68153,9 +68239,20 @@
 	var MyModal = (function () {
 	    function MyModal(viewCtrl, params) {
 	        this.nearByNFact = {};
+	        this.selectedNFactNM = '';
+	        this.selectedNFactNMImage = '';
 	        this.viewCtrl = viewCtrl;
 	        this.nearByNFact = params.get('nearByNFact');
+	        this.selectedNFactNM = this.nearByNFact.nutritionFacts[0].name;
+	        this.selectedNFactNMImage = this.nearByNFact.nutritionFacts[0].image;
 	    }
+	    MyModal.prototype.setChangeImage = function (image) {
+	        for (var tyuRow in this.nearByNFact.nutritionFacts) {
+	            if (this.nearByNFact.nutritionFacts[tyuRow].name == image) {
+	                this.selectedNFactNMImage = this.nearByNFact.nutritionFacts[tyuRow].image;
+	            }
+	        }
+	    };
 	    MyModal.prototype.dismiss = function () {
 	        this.viewCtrl.dismiss();
 	    };
